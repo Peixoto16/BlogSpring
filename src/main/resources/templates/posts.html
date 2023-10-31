@@ -13,8 +13,9 @@
         <header>
             <!-- As a heading -->
             <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1" style="font-weight: bold">MyBlog</span>
+                <div class="container-fluid" >
+                    <span class="navbar-brand mb-2 h1" style="font-weight: bold;">MyBlog</span>
+                    <a href="/novopost"><button type="button" class="btn btn-outline-primary" style="font-weight: bold;">Novo Poste</button></a>
                 </div>
             </nav>
         </header>
@@ -34,7 +35,7 @@
                                     <span th:text="${post.data}"></span>
                             </p>
 
-                            <a th:href="${(#mvc.url('PC#getPostDetail').arg(0, post.id)).build()}"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px">
+                            <a th:href="${(#mvc.url('PC#getPostDetail').arg(0, post.id)).build()}" style="text-decoration: none;"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px">
                                 <span th:text="${post.titulo}"></span>
                             </h4></a>
 
