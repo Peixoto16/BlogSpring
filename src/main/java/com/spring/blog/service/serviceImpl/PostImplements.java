@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @Service
 public class PostImplements implements PostService {
 
@@ -32,4 +34,9 @@ public class PostImplements implements PostService {
         return postRepository.save(post);
     }
 
+    @Override
+    public String delete(Long id) {
+        postRepository.deleteById(id);
+        return "Person id: "+id+" deleted";
+    }
 }

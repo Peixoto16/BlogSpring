@@ -44,8 +44,14 @@
            <section>
                <p class="card-text" style="margin-bottom: 40px"><span th:utext="${post.texto}"></span></p>
            </section>
-
        </article>
+
+        <form th:action="@{'/deletepost/' + ${post.id}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+
     </div>
 </main>
 

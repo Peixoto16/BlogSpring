@@ -4,6 +4,7 @@ import com.spring.blog.model.Post;
 import com.spring.blog.service.PostService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,6 +52,20 @@ public class PostController {
         }
         post.setData(LocalDate.now());
         postService.save(post);
+        return "redirect:/posts";
+    }
+
+    @RequestMapping(value="/deletepost/{id}", method=RequestMethod.POST)
+    public String deletePost(@PathVariable Long id, RedirectAttributes attributes) {
+        Post post = postService.findById(id);
+
+        if (post != null) {
+            postService.delete(id);
+            attributes.addFlashAttribute("mensagem", "Post excluído com sucesso.");
+        } else {
+            attributes.addFlashAttribute("mensagem", "Post não encontrado.");
+        }
+
         return "redirect:/posts";
     }
 
