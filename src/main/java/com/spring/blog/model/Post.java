@@ -23,7 +23,7 @@ public class Post {
     private LocalDate data;
     @NotBlank
     @Lob
-    @Column(length = 2000)
+    @Column(columnDefinition = "TEXT")
     private String texto;
 
     public Long getId() {

@@ -46,10 +46,15 @@
            </section>
        </article>
 
-        <form th:action="@{'/deletepost/' + ${post.id}}" method="post">
-            <input type="hidden" name="_method" value="DELETE">
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
+        <div class="d-flex">
+            <form th:action="@{'/deletepost/' + ${post.id}}" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <a th:href="@{'/updatepost/' + ${post.id}}" class="btn btn-primary" style="margin-left: 15px">Atualizar</a>
+        </div>
+
+
 
 
     </div>

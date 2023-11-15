@@ -10,4 +10,7 @@ public interface PostService {
     Post findById(long id);
     Post save(Post post);
     String delete(Long id);
+    Post updatePost(Long id, Post updatedPost);
+
+
 }
