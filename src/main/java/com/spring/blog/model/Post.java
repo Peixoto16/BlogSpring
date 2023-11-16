@@ -21,9 +21,10 @@ public class Post {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;
-    @NotBlank
+
     @Lob
     @Column(columnDefinition = "TEXT")
+    @NotBlank
     private String texto;
 
     public Long getId() {

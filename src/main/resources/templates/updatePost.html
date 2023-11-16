@@ -21,7 +21,10 @@
             <textarea class="form-control" id="texto" name="texto" rows="5" required th:text="${post.texto}"> </textarea>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
+        <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-light" role="button">Cancelar</a>
+
     </form>
+
 </div>
 
 </body>
