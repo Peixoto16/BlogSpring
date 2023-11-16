@@ -58,13 +58,23 @@
     </div>
 </section>
 
-    <script>
+<script>
+    $(document).ready(function() {
         $('#summernote').summernote({
             placeholder: 'Texto *',
             tabsize: 2,
-            height: 300
+            height: 300,
+            callbacks: {
+                onInit: function() {
+                    // Remover tags <p> ao inicializar
+                    var content = $('#summernote').summernote('code');
+                    content = content.replace(/<p>/gi, '').replace(/<\/p>/gi, '');
+                    $('#summernote').summernote('code', content);
+                }
+            }
         });
-    </script>
+    });
+</script>
 
 </body>
 
